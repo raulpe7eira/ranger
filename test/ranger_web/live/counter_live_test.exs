@@ -31,4 +31,14 @@ defmodule RangerWeb.CounterLiveTest do
 
     assert has_element?(view, "#count", "1")
   end
+
+  test "user can decrease counter", ctx do
+    {:ok, view, _} = live(ctx.conn, ~p"/counter")
+
+    view
+    |> element("#decrement")
+    |> render_click()
+
+    assert has_element?(view, "#count", "-1")
+  end
 end
