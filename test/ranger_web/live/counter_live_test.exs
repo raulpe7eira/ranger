@@ -6,9 +6,15 @@ defmodule RangerWeb.CounterLiveTest do
   test "user con increase counter", ctx do
     {:ok, view, _html} = live(ctx.conn, ~p"/counter")
 
+    # It's useful for debugging
+    # open_browser(view)
+
     view
     |> element("#increment")
     |> render_click()
+
+    # It's useful for debugging
+    # open_browser(view)
 
     assert has_element?(view, "#count", "1")
   end
