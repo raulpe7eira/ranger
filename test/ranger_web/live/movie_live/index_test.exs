@@ -10,7 +10,7 @@ defmodule RangerWeb.MovieLive.IndexTest do
 
     assert view
            |> upload("fellowship-poster.jpg")
-           |> has_element?("[data-role='image-preview']")
+           |> has_element?("[data-role=image-preview]")
   end
 
   test "user can cancel upload", ctx do
@@ -20,7 +20,7 @@ defmodule RangerWeb.MovieLive.IndexTest do
     |> upload("fellowship-poster.jpg")
     |> cancel_upload()
 
-    refute has_element?(view, "[data-role='image-preview']")
+    refute has_element?(view, "[data-role=image-preview]")
   end
 
   test "user sees error when uploading too many files", ctx do
@@ -97,7 +97,7 @@ defmodule RangerWeb.MovieLive.IndexTest do
 
   defp cancel_upload(view) do
     view
-    |> element("[data-role='cancel-upload']")
+    |> element("[data-role=cancel-upload]")
     |> render_click()
   end
 
