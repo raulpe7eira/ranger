@@ -87,6 +87,7 @@ defmodule RangerWeb.MovieLive.IndexTest do
     ])
     |> render_upload(filename)
 
+    # Calls Phoenix validate event
     view
     |> form("#upload-form")
     |> render_change()
@@ -111,6 +112,8 @@ defmodule RangerWeb.MovieLive.IndexTest do
   end
 
   defp last_movie do
-    Ranger.Movie |> Ecto.Query.last() |> Ranger.Repo.one()
+    Ranger.Movie
+    |> Ecto.Query.last()
+    |> Ranger.Repo.one()
   end
 end
