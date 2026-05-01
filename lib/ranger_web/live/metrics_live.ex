@@ -52,9 +52,9 @@ defmodule RangerWeb.MetricsLive do
     if force_fail do
       {:error, "Loading error"}
     else
-      Process.sleep(1500)
+      # Process.sleep(1500)
       # Process.sleep(metric_timeout())
-      # Process.sleep(config(:timeout))
+      Process.sleep(config(:timeout))
       {:ok, %{metric: %{value: 123, name: "User Visits"}}}
     end
   end
